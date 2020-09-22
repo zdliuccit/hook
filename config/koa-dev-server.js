@@ -1,6 +1,8 @@
 /**
  * Created by liuzhengdong on 2017/7/13.
  */
+import appConfig from './../app.config'
+
 const Koa = require('koa')
 const KoaRouter = require('koa-router')()
 const webpack = require('webpack')
@@ -12,21 +14,20 @@ const convert = require('koa-convert')
 const webpackDevMiddleware = require('koa-webpack-dev-middleware')
 const webpackHotMiddleware = require('koa-webpack-hot-middleware')
 
-const appConfig = require('./../app.config')
 const config = require('./webpack.config.dev')
 const clientCompiler = webpack(config)
 
-const proxyMiddleware = require('./utils/proxyMiddleWare')
+// const proxyMiddleware = require('./utils/proxyMiddleWare')
 const errorMiddleware = require('./utils/errorMiddleWare')
 const spaMiddleWare = require('./utils/spaMiddleWare')
 const staticMiddleWare = require('./utils/staticMiddleWare')
 
 const app = new Koa()
-const uri = 'http://' + currentIP + ':' + appConfig.appPort
+const uri = 'http://' + currentIP + ':' + appConfig.app.port
 
 const devMiddleware = webpackDevMiddleware(clientCompiler, {
   publicPath: config.output.publicPath,
-  headers: {'Access-Control-Allow-Origin': '*'},
+  headers: { 'Access-Control-Allow-Origin': '*' },
   stats: {
     colors: true,
     modules: false,
@@ -53,7 +54,7 @@ const middleWares = [
   // 路由
   KoaRouter.middleware(),
   // 代理中间件
-  proxyMiddleware(),
+  // proxyMiddleware(),
 ]
 
 middleWares.forEach((middleware) => {
@@ -75,4 +76,4 @@ app.on('error', (err) => {
   console.error('Server error: \n%s\n%s ', err.stack || '')
 })
 
-app.listen(appConfig.appPort)
+app.listen(appConfig.app.port)

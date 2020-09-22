@@ -2,7 +2,7 @@
  * 模块化处理router
  */
 import Router from 'koa-router'
-import User from './user'
+import Hook from './hook'
 
 const router = new Router()
 
@@ -12,8 +12,8 @@ const router = new Router()
  */
 export default (app) => {
   router.get('/', async ctx => {
-    ctx.body = 'ml-app'
+    ctx.body = 'hook'
   })
-  router.use('/user', User.routes(), User.allowedMethods())
+  router.use('/hook', Hook.routes(), Hook.allowedMethods())
   app.use(router.routes(), router.allowedMethods())
 }
