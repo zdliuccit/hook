@@ -7,8 +7,9 @@ class Hook {
         console.log('hook', '接收到git项目更新了')
     }
 
-    async log(ctx) {
+    async getLogs(ctx) {
         ctx.body = 'log'
+        console.log('获取日志')
     }
 }
 

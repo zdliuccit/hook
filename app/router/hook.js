@@ -4,6 +4,6 @@ import Router from 'koa-router'
 const Hook = new Router();
 
 Hook.post('/hook', UserController.hook);
-Hook.get('/log', UserController.log);
+Hook.get('/getLogs', UserController.getLogs);
 
 export default Hook
