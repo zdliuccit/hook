@@ -7,9 +7,9 @@
  * export setCookies 同步cookie
  */
 import axios from 'axios'
+import appConfig from './../../app.config'
 
 const currentIP = require('ip').address()
-const appConfig = require('./../../app.config')
 
 const defaultHeaders = {
   Accept: 'application/json, text/plain, */*; charset=utf-8',
@@ -20,7 +20,7 @@ const defaultHeaders = {
 Object.assign(axios.defaults.headers.common, defaultHeaders)
 
 if (!process.browser) {
-  axios.defaults.baseURL = `http://${currentIP}:${appConfig.appPort}`
+  axios.defaults.baseURL = `http://${currentIP}:${appConfig.app.port}`
 }
 const methods = ['get', 'post', 'put', 'delete', 'patch', 'options', 'request', 'head']
 
