@@ -5,7 +5,8 @@
   "main": "app/index.js",
   "scripts": {
     "start": "nodemon app/index.js",
-    "build": "pm2 start pm2.config.js --env production"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "pm2 start pm2.config.js --env production"
   },
   "author": "",
   "license": "ISC",
@@ -23,7 +24,6 @@
     "koa-session": "6.0.0",
     "koa-static": "5.0.0",
     "koa-views": "^6.3.1",
-    "mongoose": "5.10.4",
     "nodemon": "2.0.4"
   }
 }
