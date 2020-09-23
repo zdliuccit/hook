@@ -3,7 +3,7 @@
  */
 
 export default {
-  port: 7878,
+  port: 7979,
   /**
    * 限流中间件配置，令牌桶(Token bucket)
    * @desc 限流三种算法 令牌桶(Token bucket) 漏桶(Leaky bucket) 计数器(Counter)
