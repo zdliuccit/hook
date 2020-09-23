@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'ml-app', // app名称
+    name: 'hook', // app名称
     script: 'app/index.js', // 要运行的脚本的路径。
     args: '', // 由传递给脚本的参数组成的字符串或字符串数​​组。
     output: './log/out.log',
